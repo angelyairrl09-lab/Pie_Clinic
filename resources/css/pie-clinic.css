@@ -1,0 +1,378 @@
+
+:root {
+    /* Colores institucionales Pie_Clinic */
+    --pc-primary: #790020;
+    --pc-primary-dark: #510014;
+    --pc-dark: #510014;
+    --pc-secondary: #d86d78;
+    --pc-pink: #f6b5be;
+    --pc-pink-light: #fff0f2;
+    --pc-background: #fff8f9;
+    --pc-white: #ffffff;
+    --pc-text: #2d1820;
+
+    /* Dimensiones */
+    --pc-sidebar-width: 260px;
+}
+
+/* CONFIGURACIÓN GENERAL */
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+}
+
+body {
+    background: var(--pc-background);
+    color: var(--pc-text);
+    font-family: Figtree, 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+/* MENÚ LATERAL */
+
+.pc-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: var(--pc-sidebar-width);
+    height: 100vh;
+    background: var(--pc-primary);
+    color: white;
+    overflow-y: auto;
+    z-index: 1040;
+    transition: transform .25s ease;
+}
+
+.pc-brand {
+    text-align: center;
+    padding: 24px 12px;
+    border-bottom: 1px solid #ffffff33;
+}
+
+.pc-menu {
+    padding: 16px 12px;
+}
+
+.pc-menu .nav-link {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    padding: 11px 14px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+    text-decoration: none;
+    transition: background .2s ease;
+}
+
+.pc-menu .nav-link i {
+    margin-right: 10px;
+}
+
+.pc-menu .nav-link:hover,
+.pc-menu .nav-link.active {
+    background: #ffffff26;
+    color: #ffffff;
+}
+
+/* CONTENEDOR PRINCIPAL */
+
+.pc-main {
+    margin-left: var(--pc-sidebar-width);
+    width: calc(100% - var(--pc-sidebar-width));
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+/* BARRA SUPERIOR */
+
+.pc-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    width: 100%;
+    background: var(--pc-white);
+    padding: 16px 24px;
+    border-bottom: 1px solid #f1dce1;
+}
+
+/* CONTENIDO PRINCIPAL */
+
+.pc-content {
+    padding: 24px;
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+}
+
+/* TARJETAS */
+
+.pc-card {
+    background: var(--pc-white);
+    border: 1px solid #f1dce1;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(81, 0, 20, .05);
+}
+
+.pc-card-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--pc-pink-light);
+    color: var(--pc-primary);
+    font-size: 24px;
+}
+
+.pc-card-icon i {
+    color: var(--pc-primary);
+}
+
+/* PIE DE PÁGINA */
+
+.pc-footer {
+    text-align: center;
+    padding: 20px;
+    color: #80616a;
+    font-size: 13px;
+}
+
+/* BOTONES */
+
+.btn-pc {
+    background: var(--pc-primary);
+    color: white;
+    border: 1px solid var(--pc-primary);
+    padding: 10px 16px;
+}
+
+.btn-pc:hover,
+.btn-pc:focus {
+    background: var(--pc-primary-dark);
+    border-color: var(--pc-primary-dark);
+    color: white;
+}
+
+/* AUTENTICACIÓN */
+
+.pc-auth {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: var(--pc-background);
+}
+
+.pc-auth-shell {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    width: min(900px, 100%);
+    background: var(--pc-white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 16px 55px rgba(81, 0, 20, .13);
+}
+
+/* PANEL IZQUIERDO DEL LOGIN */
+
+.pc-auth-brand {
+    background: var(--pc-primary);
+    color: white;
+    padding: 40px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+}
+
+/* LOGOTIPO PIE CLINIC */
+
+.pc-auth-logo {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    max-height: 220px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+
+    /* Convierte el logotipo oscuro a blanco */
+    filter: brightness(0) invert(1);
+}
+
+/* ICONO ORIGINAL */
+
+.pc-auth-brand i {
+    font-size: 48px;
+}
+
+/* TÍTULO DEL LOGIN */
+
+.pc-auth-brand h1 {
+    font-weight: 700;
+    color: white;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+/* DESCRIPCIÓN DEL LOGIN */
+
+.pc-auth-brand p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+/* PANEL DERECHO DEL LOGIN */
+
+.pc-auth-form {
+    padding: 40px;
+    min-width: 0;
+}
+
+/* TÍTULO DEL FORMULARIO */
+
+.pc-auth-title {
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: var(--pc-dark);
+}
+
+/* CAMPOS DEL FORMULARIO */
+
+.pc-auth .form-control {
+    padding: 11px 12px;
+    border-radius: 9px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.pc-auth .form-control:focus {
+    border-color: var(--pc-secondary);
+    box-shadow: 0 0 0 .2rem rgba(216, 109, 120, .15);
+}
+
+/* ENLACES DEL LOGIN */
+
+.pc-auth-link {
+    display: block;
+    text-align: center;
+    margin-top: 16px;
+    color: var(--pc-primary);
+}
+
+.pc-auth-link:hover {
+    color: var(--pc-primary-dark);
+}
+
+/* MENÚ RESPONSIVO */
+
+@media (max-width: 991.98px) {
+
+    .pc-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .pc-sidebar.show {
+        transform: translateX(0);
+    }
+
+    .pc-main {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .pc-content {
+        padding: 16px;
+    }
+}
+
+/* AUTENTICACIÓN RESPONSIVA */
+
+@media (max-width: 650px) {
+
+    .pc-auth {
+        padding: 16px;
+    }
+
+    .pc-auth-shell {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .pc-auth-brand,
+    .pc-auth-form {
+        padding: 24px;
+    }
+
+    .pc-auth-logo {
+        max-width: 200px;
+        max-height: 140px;
+        margin-bottom: 16px;
+    }
+
+    .pc-auth-brand h1 {
+        font-size: 24px;
+    }
+
+    .pc-auth-brand p {
+        font-size: 13px;
+    }
+
+    .pc-auth-brand i {
+        font-size: 32px;
+    }
+
+    /* BOTÓN SECUNDARIO INSTITUCIONAL */
+
+.btn-outline-pc {
+    color: var(--pc-primary);
+    border: 1px solid var(--pc-primary);
+    background-color: transparent;
+}
+
+.btn-outline-pc:hover,
+.btn-outline-pc:focus {
+    color: #ffffff;
+    background-color: var(--pc-primary);
+    border-color: var(--pc-primary);
+}
+
+/* BOTONES INSTITUCIONALES PIE CLINIC */
+
+.btn-pc {
+    background-color: #790020;
+    border: 1px solid #790020;
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.btn-pc:hover,
+.btn-pc:focus {
+    background-color: #510014;
+    border-color: #510014;
+    color: #ffffff;
+}
+
+.btn-outline-pc {
+    background-color: transparent;
+    border: 1px solid #790020;
+    color: #790020;
+}
+
+.btn-outline-pc:hover,
+.btn-outline-pc:focus {
+    background-color: #790020;
+    border-color: #790020;
+    color: #ffffff;
+}
+
+}
