@@ -1,0 +1,14 @@
+@extends('layouts.app')
+@section('title', 'Inventario')
+@section('content')
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-4"><div><h3 class="fw-bold mb-1">Inventario</h3><p class="text-secondary mb-0">Productos, materiales, medicamentos y caducidades.</p></div><a class="btn btn-pc" href="{{ route('inventario.create') }}">Nuevo producto</a></div>
+@if(session('success'))<div class="alert alert-success">{{ session('success') }}</div>@endif
+<div class="card pc-card mb-4"><div class="card-body"><form method="GET" class="row g-2"><div class="col-md-6"><input class="form-control" name="buscar" placeholder="Buscar por código o nombre" value="{{ request('buscar') }}"></div><div class="col-md-4"><select class="form-select" name="categoria"><option value="">Todas las categorías</option>@foreach(['MEDICAMENTO','MATERIAL','PRODUCTO'] as $categoria)<option value="{{ $categoria }}" @selected(request('categoria') === $categoria)>{{ ucfirst(strtolower($categoria)) }}</option>@endforeach</select></div><div class="col-md-2"><button class="btn btn-pc w-100">Buscar</button></div></form></div></div>
+<div class="card pc-card mb-4"><div class="card-body"><div class="table-responsive"><table class="table align-middle"><thead><tr><th>Código</th><th>Producto</th><th>Categoría</th><th>Existencia</th><th>Stock mínimo</th><th>Estado</th><th></th></tr></thead><tbody>
+@forelse($productos as $producto)
+@php($existencia = (int)($producto->existencia_total ?? 0))
+<tr><td>{{ $producto->codigo }}</td><td>{{ $producto->nombre }}</td><td>{{ $producto->categoria }}</td><td><span class="{{ $existencia <= $producto->stock_minimo ? 'text-danger fw-bold' : '' }}">{{ $existencia }} {{ $producto->unidad }}</span></td><td>{{ $producto->stock_minimo }}</td><td>{{ $producto->activo ? 'Activo' : 'Inactivo' }}</td><td><a class="btn btn-sm btn-outline-secondary" href="{{ route('inventario.show', $producto) }}">Ver</a></td></tr>
+@empty<tr><td colspan="7" class="text-center text-secondary py-4">No hay productos registrados.</td></tr>@endforelse
+</tbody></table></div>{{ $productos->links() }}</div></div>
+<div class="card pc-card"><div class="card-body"><h5 class="fw-semibold">Caducados o próximos a caducar (30 días)</h5><div class="table-responsive"><table class="table align-middle"><thead><tr><th>Producto</th><th>Lote</th><th>Caducidad</th><th>Existencia</th></tr></thead><tbody>@forelse($caducidades as $lote)<tr><td><a href="{{ route('inventario.show', $lote->producto) }}">{{ $lote->producto?->nombre }}</a></td><td>{{ $lote->numero_lote }}</td><td class="{{ $lote->fecha_caducidad->isPast() ? 'text-danger fw-bold' : 'text-warning' }}">{{ $lote->fecha_caducidad->format('d/m/Y') }}</td><td>{{ $lote->existencia }}</td></tr>@empty<tr><td colspan="4" class="text-center text-secondary py-3">Sin alertas de caducidad.</td></tr>@endforelse</tbody></table></div></div></div>
+@endsection

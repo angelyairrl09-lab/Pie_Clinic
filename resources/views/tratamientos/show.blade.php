@@ -14,10 +14,16 @@
         </p>
     </div>
 
-    <a href="{{ route('tratamientos.edit', $tratamiento) }}"
-       class="btn btn-pc">
-        Editar tratamiento
-    </a>
+    <div class="d-flex gap-2">
+        <a href="{{ route('tratamientos.pdf', $tratamiento) }}"
+           class="btn btn-outline-pc">
+            Generar PDF
+        </a>
+        <a href="{{ route('tratamientos.edit', $tratamiento) }}"
+           class="btn btn-pc">
+            Editar tratamiento
+        </a>
+    </div>
 
 </div>
 

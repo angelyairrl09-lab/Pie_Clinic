@@ -65,29 +65,29 @@
     Tratamientos
 </a>
 
-        <a href="#" class="nav-link">
-            <i class="bi bi-activity"></i>
-            Seguimientos
-        </a>
+        <a href="{{ route('seguimientos.index') }}" class="nav-link">
+    <i class="bi bi-activity"></i>
+    Seguimientos
+</a>
 
         <small class="text-white-50 px-3 mt-3 mb-2">
             ADMINISTRACIÓN
         </small>
 
-        <a href="#" class="nav-link">
-            <i class="bi bi-box-seam"></i>
-            Inventario
-        </a>
+        <a href="{{ route('inventario.index') }}" class="nav-link">
+    <i class="bi bi-box-seam"></i>
+    Inventario
+</a>
 
-        <a href="#" class="nav-link">
-            <i class="bi bi-wallet2"></i>
-            Finanzas
-        </a>
+        <a href="{{ route('finanzas.index') }}" class="nav-link">
+    <i class="bi bi-wallet2"></i>
+    Finanzas
+</a>
 
-        <a href="#" class="nav-link">
-            <i class="bi bi-bar-chart"></i>
-            Reportes
-        </a>
+        <a href="{{ route('reportes.index') }}" class="nav-link">
+    <i class="bi bi-file-earmark-bar-graph"></i>
+    Reportes
+</a>
 
         <a href="#" class="nav-link">
             <i class="bi bi-person-gear"></i>
